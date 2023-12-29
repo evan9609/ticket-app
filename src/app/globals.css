@@ -21,6 +21,12 @@
   p{
     @apply text-sm text-default-text;
   }
+  input, select, textarea{
+    @apply rounded bg-card p-1;
+  }
+  form {
+    @apply rounded-xl p-4;
+  }
 }
 
 @layer components{
