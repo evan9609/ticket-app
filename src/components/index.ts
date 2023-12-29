@@ -1,1 +1,6 @@
 export { default as Nav } from './Nav'
+export { default as DeleteBlock } from './DeleteBlock'
+export { default as TicketCard } from './TicketCard'
+export { default as PriorityDisplay } from './PriorityDisplay'
+export { default as ProgressDisplay } from './ProgressDisplay'
+export { default as StatusDisplay } from './StatusDisplay'
