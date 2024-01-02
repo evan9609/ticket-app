@@ -1,7 +1,7 @@
 import styles from './TicketCard.module.css'
 import { DeleteBlock, PriorityDisplay, ProgressDisplay, StatusDisplay } from '@/components'
 
-const TicketCard = () => {
+const TicketCard = ({ticketId,ticketContent}:{ticketId:number,ticketContent: any}) => {
   return (
     <div className="flex flex-col bg-card hover:bg-card-hover rounded-md shadow-lg p-3 m-2">
       <div className='flex mb-3 justify-between text-red-400'>
@@ -10,9 +10,9 @@ const TicketCard = () => {
           <DeleteBlock />
         </div>
       </div>
-      <h4>Ticket Title</h4>
+      <h4>{ticketContent.title}</h4>
       <hr className='h-px border-0 bg-page mb-2' />
-      <p className='whitespace-pre-wrap'>this is the ticket description! Please do this ticket</p>
+      <p className='whitespace-pre-wrap'>{ticketContent.title}</p>
       <div className='flex-grow'></div>
       <div className='flex mt-2'>
         <div className="flex flex-col">

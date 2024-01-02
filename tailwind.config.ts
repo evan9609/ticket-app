@@ -19,7 +19,7 @@ const config: Config = {
         card: "#47566a",
         "card-hover": "#4f5e74",
         "default-text": "#f1f3f5",
-        "blue-accent": "#009sd4",
+        "blue-accent": "#009ad4",
         "blue-accent-hover": "#0084d4"
       }
     },
