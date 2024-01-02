@@ -12,7 +12,7 @@ const Nav = () => {
         <Link href="/">
           <FontAwesomeIcon icon={faHome} className="icon" />
         </Link>
-        <Link href="/ticket">
+        <Link href="/ticket/new">
           <FontAwesomeIcon icon={faTicket} className="icon" />
         </Link>
 

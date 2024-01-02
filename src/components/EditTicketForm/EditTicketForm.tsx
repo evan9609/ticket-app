@@ -14,7 +14,7 @@ interface TypeTicket {
   active?: Boolean;
 }
 
-const EditTicketForm = () => {
+const EditTicketForm = ({editMode,ticketData}:{editMode:boolean,ticketData:any}) => {
   const router = useRouter();
   const handleChange = (e : ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const value = e.target.value;
@@ -26,30 +26,42 @@ const EditTicketForm = () => {
   }
   const handleSubmit = async (e : FormDataEvent) => {
     e.preventDefault();
-    const res= await fetch("/api/Tickets", {
-      method: "POST",
-      body: JSON.stringify({formData}),
-      "content-type": "application.json",
-    })
+    if(editMode){
+      console.log(ticketData._id)
+      const res= await fetch(`/api/Tickets/${ticketData._id}`, {
+        method: "PUT",
+        body: JSON.stringify({formData}),
+        "content-type": "application.json",
+      })
+  
+      if(!res.ok) throw new Error("failed to update Ticket.")
 
-    if(!res.ok) throw new Error("failed to create Ticket.")
+    }else{
+      const res= await fetch("/api/Tickets", {
+        method: "POST",
+        body: JSON.stringify({formData}),
+        "content-type": "application.json",
+      })
+  
+      if(!res.ok) throw new Error("failed to create Ticket.")
+    }
 
     router.push("/")
     router.refresh();
   }
   const startingTicketData = {
-    title: "",
-    description: "",
-    category: "Hardware Problem",
-    priority: 1,
-    progress: 0,
-    status: "Not Started",
+    title: editMode ? ticketData.title : "",
+    description: editMode ? ticketData.description : "",
+    category: editMode ? ticketData.category : "Hardware Problem",
+    priority: editMode ? ticketData.priority : 1,
+    progress: editMode ? ticketData.progress : 0,
+    status: editMode ? ticketData.status : "Not Started",
   }
   const [ formData, setFormData] = useState<TypeTicket>(startingTicketData)
   return (
     <div className="flex justify-center">
       <form className="flex flex-col gap-3 w-1/2" method="post" onSubmit={ handleSubmit }>
-        <h3>Create Your Ticket</h3>
+        <h3>{editMode ? "Update Your Ticket" : "Create Your Ticket"}</h3>
 
         <label>Title</label>
         <input type="text" name="title" id="title" onChange={ handleChange } required={true} value={formData.title}/>
@@ -82,7 +94,7 @@ const EditTicketForm = () => {
           <option value="started">Started</option>
           <option value="done">Done</option>
         </select>
-        <input type="submit" className="btn" value="Create Ticket"/>
+        <input type="submit" className="btn" value={editMode ? "Update Ticket": "Create Ticket"}/>
       </form>
     </div>
   )

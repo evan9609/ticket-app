@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import styles from './TicketCard.module.css'
 import { DeleteBlock, PriorityDisplay, ProgressDisplay, StatusDisplay } from '@/components'
 
@@ -24,19 +25,21 @@ const TicketCard = ({ticketId,ticketContent}:{ticketId:number,ticketContent: any
           <DeleteBlock ticketId={ticketContent._id}/>
         </div>
       </div>
-      <h4>{ticketContent.title}</h4>
-      <hr className='h-px border-0 bg-page mb-2' />
-      <p className='whitespace-pre-wrap'>{ticketContent.title}</p>
-      <div className='flex-grow'></div>
-      <div className='flex mt-2'>
-        <div className="flex flex-col">
-          <p className='text-xs my-1'>{formatTimestamp(ticketContent.createdAt)}</p>
-          <ProgressDisplay progress={ticketContent.progress}/>
+      <Link href={`/ticket/${ticketContent._id}`} style={{display: "contents"}}>
+        <h4>{ticketContent.title}</h4>
+        <hr className='h-px border-0 bg-page mb-2' />
+        <p className='whitespace-pre-wrap'>{ticketContent.title}</p>
+        <div className='flex-grow'></div>
+        <div className='flex mt-2'>
+          <div className="flex flex-col">
+            <p className='text-xs my-1'>{formatTimestamp(ticketContent.createdAt)}</p>
+            <ProgressDisplay progress={ticketContent.progress}/>
+          </div>
+          <div className='ml-auto flex items-end'>
+            <StatusDisplay status={ticketContent.status}/>
+          </div>
         </div>
-        <div className='ml-auto flex items-end'>
-          <StatusDisplay status={ticketContent.status}/>
-        </div>
-      </div>
+      </Link>
     </div>
   )
 }
