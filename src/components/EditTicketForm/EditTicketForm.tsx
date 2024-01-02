@@ -23,7 +23,6 @@ const EditTicketForm = () => {
       ...prevState,
       [name]: value
     }))
-    console.log(formData)
   }
   const handleSubmit = async (e : FormDataEvent) => {
     e.preventDefault();
@@ -35,8 +34,8 @@ const EditTicketForm = () => {
 
     if(!res.ok) throw new Error("failed to create Ticket.")
 
-    router.refresh();
     router.push("/")
+    router.refresh();
   }
   const startingTicketData = {
     title: "",

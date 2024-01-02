@@ -1,4 +1,4 @@
-
+"use client";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styles from './DeleteBlock.module.css'
 import { faX } from '@fortawesome/free-solid-svg-icons'
@@ -11,8 +11,6 @@ const DeleteBlock = ({ticketId}:{ticketId: number}) => {
       method: "DELETE"
     })
     if(res.ok){
-      // location.reload();
-      router.push('/')
       router.refresh()
     }
   }

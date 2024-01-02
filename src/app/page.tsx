@@ -1,6 +1,6 @@
-"use client";
+// "use client";
 import { TicketCard } from "@/components";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 
 const fetchTickets = async () => {
   try{
@@ -12,28 +12,27 @@ const fetchTickets = async () => {
     console.log("Failed to get Tickets",error)
   }
 }
-const Dashboard = () => {
-  const [ticketData, setTicketData] = useState({})
-  const [uniqueCategories, setUniqueCategories] = useState([])
-  async function getTicketData(){
-    const { tickets } = await fetchTickets();
-    setTicketData(tickets);
-    setUniqueCategories([
-      ...new Set(tickets.map(({category} : { category : string}) => category)),,
-    ]);
-  }
-  useEffect(()=>{
-    getTicketData()
-  },[])
+const Dashboard = async() => {
+  // const [ticketData, setTicketData] = useState({})
+  // const [uniqueCategories, setUniqueCategories] = useState([])
+  // async function getTicketData(){
+  // }
+  // useEffect(()=>{
+  //   getTicketData()
+  // },[])
+  const { tickets } = await fetchTickets();
+  const uniqueCategories = [
+    ...new Set(tickets.map(({category} : { category : string}) => category)),,
+  ];
   return (
     <div className="p-5">
       <div>
-        { ticketData && uniqueCategories?.map((uniqueCategories, categoryIndex)=>(
+        { tickets && uniqueCategories?.map((uniqueCategories, categoryIndex)=>(
         <div key={categoryIndex} className="mb-4">
           <h2>{uniqueCategories}</h2>
           <div className="lg:grid grid-cols-2 xl:grid-cols-4">
             {
-              ticketData.filter((ticket: any)=>
+              tickets.filter((ticket: any)=>
                 (ticket.category == uniqueCategories))
                 .map((filterTicket: any, _index : number)=>(
                   <TicketCard ticketId={_index} key={_index} ticketContent={filterTicket}/>
