@@ -6,7 +6,7 @@ export async function GET(req :Request,{params}: { params : any }){
     const {id} = params;
     console.log('get',id)
     const foundTicket = await Ticket.findOne({_id:id});
-    return NextResponse.json({foundTicket},{status: 200})
+    return NextResponse.json(foundTicket,{status: 200})
   }catch(error){
     return NextResponse.json({message: "Error", error}, {status: 500})
   }

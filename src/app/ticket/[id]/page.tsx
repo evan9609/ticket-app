@@ -21,7 +21,7 @@ export default async function Ticket( { params } : {
 	let updateTicketData = {};
 	if(editMode){
 		updateTicketData = await getTicketById(params.id);
-		updateTicketData = updateTicketData.foundTicket;
+		// updateTicketData = updateTicketData.foundTicket;
 		console.log(updateTicketData)
 	}else{
 		updateTicketData = "new"
