@@ -68,11 +68,11 @@ const EditTicketForm = ({editMode,ticketData}:{editMode:boolean,ticketData:any})
         <h3>{editMode ? "Update Your Ticket" : "Create Your Ticket"}</h3>
 
         <label>Title</label>
-        <input type="text" name="title" id="title" onChange={ handleChange } required={true} value={formData.title}/>
+        <input type="text" name="title" id="title" onChange={ handleChange } required={true} value={String(formData.title)}/>
         <label>Description</label>
-        <textarea name="description" id="description" onChange={ handleChange } required={true} rows={5} value={formData.description}/>
+        <textarea name="description" id="description" onChange={ handleChange } required={true} rows={5} value={String(formData.description)}/>
         <label>Category</label>
-        <select name="category" onChange={ handleChange } value={formData.category}>
+        <select name="category" onChange={ handleChange } value={String(formData.category)}>
           <option value="Hardware Problem">Hardware Problem</option>
           <option value="Software Problem">Software Problem</option>
           <option value="Project">Project</option>
@@ -91,9 +91,9 @@ const EditTicketForm = ({editMode,ticketData}:{editMode:boolean,ticketData:any})
           <label>5</label>
         </div>
         <label>Progress</label>
-        <input type="range" id="progress" name="progress" min="0" max="100" onChange={handleChange} value={formData.progress}/>
+        <input type="range" id="progress" name="progress" min="0" max="100" onChange={handleChange} value={Number(formData.progress)}/>
         <label>Status</label>
-        <select name="status" id="status" onChange={handleChange} value={formData.status}>
+        <select name="status" id="status" onChange={handleChange} value={String(formData.status)}>
           <option value="not started">Not Started</option>
           <option value="started">Started</option>
           <option value="done">Done</option>
