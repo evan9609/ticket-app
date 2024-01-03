@@ -1,6 +1,13 @@
 import mongoose, { Schema, InferSchemaType } from 'mongoose';
 
-mongoose.connect(process.env.MONGODB_URL)
+const mongodbUrl = process.env.DB_KEY;
+
+if (!mongodbUrl) {
+  console.error("MONGODB_URL is not defined");
+} else {
+  mongoose.connect(mongodbUrl);
+}
+
 mongoose.Promise = global.Promise
 
 const ticketSchema = new Schema({
