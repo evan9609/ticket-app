@@ -4,13 +4,13 @@ import { DeleteBlock, PriorityDisplay, ProgressDisplay, StatusDisplay } from '@/
 
 const TicketCard = ({ticketId,ticketContent}:{ticketId:number,ticketContent: any}) => {
   const formatTimestamp = (time: any)=>{
-    const options = {
+    const options : any = {
       year: "numeric",
       month: "2-digit",
       day: "2-digit",
       hour: "2-digit",
       minute: "2-digit",
-      hours12: true
+      hour12: true
     };
 
     const date = new Date(time);
