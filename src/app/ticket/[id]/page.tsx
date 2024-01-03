@@ -2,7 +2,7 @@ import { EditTicketForm } from "@/components"
 import { AnyBulkWriteOperation } from "mongodb";
 
 const getTicketById = async (id: any)=>{
-	const res = await fetch(`http://localhost:3000/api/Tickets/${id}`,{
+	const res = await fetch(`https://ticket-app-uhkp.vercel.app/api/Tickets/${id}`,{
 		cache: "no-store",
 	})
 	if(!res.ok){
