@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation"
-import { useState, ChangeEvent } from "react";
+import { useState, ChangeEvent, FormEvent} from "react";
 import styles from './EditTicketForm.module.css'
 
 interface TypeTicket {
@@ -24,7 +24,7 @@ const EditTicketForm = ({editMode,ticketData}:{editMode:boolean,ticketData:any})
       [name]: value
     }))
   }
-  const handleSubmit = async (e : FormDataEvent) => {
+  const handleSubmit = async (e : FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if(editMode){
       console.log(ticketData._id)
