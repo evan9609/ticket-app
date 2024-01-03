@@ -31,7 +31,9 @@ const EditTicketForm = ({editMode,ticketData}:{editMode:boolean,ticketData:any})
       const res= await fetch(`/api/Tickets/${ticketData._id}`, {
         method: "PUT",
         body: JSON.stringify({formData}),
-        "content-type": "application/json",
+        headers: {
+          "Content-Type": "application/json", 
+        },
       })
   
       if(!res.ok) throw new Error("failed to update Ticket.")
@@ -40,7 +42,9 @@ const EditTicketForm = ({editMode,ticketData}:{editMode:boolean,ticketData:any})
       const res= await fetch("/api/Tickets", {
         method: "POST",
         body: JSON.stringify({formData}),
-        "content-type": "application/json",
+        headers: {
+          "Content-Type": "application/json", 
+        },
       })
   
       if(!res.ok) throw new Error("failed to create Ticket.")
