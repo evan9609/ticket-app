@@ -22,7 +22,7 @@ const Dashboard = async() => {
   // },[])
   const { tickets } = await fetchTickets();
   const uniqueCategories = [
-    ...new Set(tickets.map(({category} : { category : string}) => category)),,
+    ...new Set(tickets.map(({category} : { category : string}) => category)),
   ];
   return (
     <div className="p-5">
