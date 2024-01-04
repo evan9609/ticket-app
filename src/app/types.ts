@@ -1,7 +1,7 @@
 export interface TypeTicket {
   title: string
   description: string
-  category: number
+  category: string
   priority: number
   progress: number
   status: string
