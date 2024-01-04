@@ -1,6 +1,10 @@
 import styles from './StatusDisplay.module.css'
 
-const StatusDisplay = ({status}:{status : string}) => {
+type Status = {
+  status: string
+}
+
+const StatusDisplay : React.FunctionComponent<Status> = ({status}) => {
   const getColor = (status : string) => {
     let color = "bg-red-200";
     switch(status.toLowerCase()){
