@@ -9,6 +9,7 @@ if (!mongodbUrl) {
   mongoose.connect(mongodbUrl);
 }
 
+// 這段好像可以不用
 mongoose.Promise = global.Promise
 
 const ticketSchema = new Schema<TypeTicket>({
@@ -25,8 +26,6 @@ const ticketSchema = new Schema<TypeTicket>({
     timestamps: true,
   }
 )
-
-// type Ticket = InferSchemaType<typeof ticketSchema>
 
 // 事實上mongodb會把 Ticket 轉成 collection tickets ,為了使用方便用Ticket較容易辨識
 const Ticket = mongoose.models.Ticket || mongoose.model('Ticket', ticketSchema);
