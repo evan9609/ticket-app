@@ -1,5 +1,5 @@
 import mongoose, { Schema } from 'mongoose';
-import { TypeTicket } from '../../../types';
+import { TypeTicket } from '../types';
 
 const mongodbUrl = process.env.DB_KEY;
 
