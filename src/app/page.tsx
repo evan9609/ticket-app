@@ -28,7 +28,7 @@ const Dashboard = async() => {
               tickets.filter((ticket)=>
                 (ticket.category == uniqueCategories))
                 .map((filterTicket, _index)=>(
-                  <TicketCard ticketId={_index} key={_index} ticketContent={filterTicket}/>
+                  <TicketCard key={_index} ticketContent={filterTicket}/>
                 ))
             }
           </div>

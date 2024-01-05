@@ -6,4 +6,5 @@ export interface TypeTicket {
   progress: number
   status: string
   active?: boolean
+  [key: string]: unknown
 }
