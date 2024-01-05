@@ -1,7 +1,3 @@
-
-
-import styles from './ProgressDisplay.module.css'
-
 const ProgressDisplay = ({progress} : {progress:number}) => {
   return (
     <div className="w-full bg-gray-200 rounded-full h-2.5">

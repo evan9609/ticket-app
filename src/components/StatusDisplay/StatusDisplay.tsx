@@ -1,5 +1,3 @@
-import styles from './StatusDisplay.module.css'
-
 type Status = {
   status: string
 }

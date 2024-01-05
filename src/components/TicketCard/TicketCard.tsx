@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { DeleteBlock, PriorityDisplay, ProgressDisplay, StatusDisplay } from '@/components'
 import { TypeTicket } from '@/app/types';
-import { AnyCnameRecord } from 'dns';
 
 const TicketCard = ({ticketContent}:{ticketContent: TypeTicket}) => {
   const formatTimestamp = (time: Date)=>{
@@ -31,7 +30,7 @@ const TicketCard = ({ticketContent}:{ticketContent: TypeTicket}) => {
       <Link href={`/ticket/${ _id}`} style={{display: "contents"}}>
         <h4>{ticketContent.title}</h4>
         <hr className='h-px border-0 bg-page mb-2' />
-        <p className='whitespace-pre-wrap'>{ticketContent.title}</p>
+        <p className='whitespace-pre-wrap'>{ticketContent.description}</p>
         <div className='flex-grow'></div>
         <div className='flex mt-2'>
           <div className="flex flex-col">

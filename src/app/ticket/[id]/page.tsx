@@ -1,5 +1,5 @@
 import { EditTicketForm } from "@/components"
-import { AnyBulkWriteOperation } from "mongodb";
+import { TypeTicket } from "@/app/types";
 
 const getTicketById = async (id: any)=>{
 	const res = await fetch(`https://ticket-app-uhkp.vercel.app/api/Tickets/${id}`,{
@@ -18,10 +18,9 @@ export default async function Ticket( { params } : {
 }) {
 	const editMode = params.id !== "new" ?? false;
 	console.log(editMode)
-	let updateTicketData = {};
+	let updateTicketData : string | TypeTicket;
 	if(editMode){
 		updateTicketData = await getTicketById(params.id);
-		// updateTicketData = updateTicketData.foundTicket;
 		console.log(updateTicketData)
 	}else{
 		updateTicketData = "new"

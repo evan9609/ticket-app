@@ -1,7 +1,4 @@
-
-
 import Link from 'next/link'
-import styles from './Nav.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome, faTicket } from '@fortawesome/free-solid-svg-icons'
 
@@ -15,7 +12,6 @@ const Nav = () => {
         <Link href="/ticket/new">
           <FontAwesomeIcon icon={faTicket} className="icon" />
         </Link>
-
       </div>
       <div>
         <p className='text-default-text'>Nav</p>
