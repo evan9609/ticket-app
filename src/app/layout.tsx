@@ -4,7 +4,7 @@ import './globals.css'
 import { config } from '@fortawesome/fontawesome-svg-core'
 import "@fortawesome/fontawesome-svg-core/styles.css"
 
-import { Nav } from '@/components'
+import { Loading, Nav } from '@/components'
 
 config.autoAddCss = false;
 const inter = Inter({ subsets: ['latin'] })
@@ -22,6 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <Loading />
         <div className='flex flex-col h-screen max-h-screen'>
           <Nav />
           <div className='flex-grow overflow-y-auto bg-page text-default-text'>
